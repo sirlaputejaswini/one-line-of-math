@@ -1,0 +1,23 @@
+========================================================================
+Layer-math experiment — arm: baseline
+Arm definition: Control: scaled dot-product attention, Adam, Noam warmup 200.
+Config: {'seed': 20261028, 'd_model': 128, 'num_heads': 4, 'num_layers': 2, 'd_ff': 512, 'batch_size': 64, 'epochs': 10, 'train_size': 20000, 'val_size': 2000, 'test_size': 2000, 'eval_decode_n': 500, 'min_len': 4, 'max_len': 10} | arm spec: {'attention_mode': 'base', 'optimizer': 'adam', 'warmup': 200, 'weight_decay': None}
+NumPy version: 2.5.4
+========================================================================
+Parameter count: 930,957
+epoch  1 | train loss 0.7753 acc 0.7328 | val loss 0.2549 acc 0.9268 | 349.8s
+epoch  2 | train loss 0.1581 acc 0.9591 | val loss 0.0997 acc 0.9770 | 140.1s
+epoch  3 | train loss 0.0776 acc 0.9825 | val loss 0.0412 acc 0.9911 | 110.3s
+epoch  4 | train loss 0.0488 acc 0.9894 | val loss 0.0050 acc 0.9991 | 114.9s
+epoch  5 | train loss 0.0471 acc 0.9905 | val loss 0.0085 acc 0.9984 | 109.9s
+epoch  6 | train loss 0.0222 acc 0.9956 | val loss 0.0300 acc 0.9935 | 107.9s
+epoch  7 | train loss 0.0213 acc 0.9961 | val loss 0.0208 acc 0.9962 | 107.2s
+epoch  8 | train loss 0.0157 acc 0.9972 | val loss 0.0051 acc 0.9993 | 108.4s
+epoch  9 | train loss 0.0147 acc 0.9975 | val loss 0.0191 acc 0.9966 | 104.7s
+epoch 10 | train loss 0.0110 acc 0.9982 | val loss 0.0046 acc 0.9992 | 107.7s
+Training wall time: 1360.9s for 10 epochs (3130 optimizer steps)
+Greedy exact-match, held-out lengths 4-10: 499/500 = 0.9980
+Greedy exact-match, lengths 11-14 (never trained on): 0/500 = 0.0000
+Greedy exact-match, lengths 15-18 (never trained on): 0/500 = 0.0000
+Saved model weights to weights_baseline.npz
+Wrote results_baseline.json
