@@ -1,0 +1,23 @@
+========================================================================
+Layer-math experiment — arm: alibi
+Arm definition: V1 ALiBi: scores -= m_h * |i-j| per head before softmax; no new parameters.
+Config: {'seed': 20261028, 'd_model': 128, 'num_heads': 4, 'num_layers': 2, 'd_ff': 512, 'batch_size': 64, 'epochs': 10, 'train_size': 20000, 'val_size': 2000, 'test_size': 2000, 'eval_decode_n': 500, 'min_len': 4, 'max_len': 10} | arm spec: {'attention_mode': 'alibi', 'optimizer': 'adam', 'warmup': 200, 'weight_decay': None}
+NumPy version: 2.5.4
+========================================================================
+Parameter count: 930,957
+epoch  1 | train loss 0.7817 acc 0.7273 | val loss 0.2551 acc 0.9185 | 113.5s
+epoch  2 | train loss 0.1302 acc 0.9626 | val loss 0.1293 acc 0.9687 | 111.7s
+epoch  3 | train loss 0.0643 acc 0.9832 | val loss 0.1700 acc 0.9657 | 119.2s
+epoch  4 | train loss 0.0561 acc 0.9856 | val loss 0.0244 acc 0.9934 | 116.5s
+epoch  5 | train loss 0.0312 acc 0.9925 | val loss 0.0132 acc 0.9969 | 110.5s
+epoch  6 | train loss 0.0295 acc 0.9931 | val loss 0.0130 acc 0.9959 | 108.0s
+epoch  7 | train loss 0.0178 acc 0.9958 | val loss 0.0042 acc 0.9988 | 109.3s
+epoch  8 | train loss 0.0141 acc 0.9966 | val loss 0.0028 acc 0.9991 | 107.0s
+epoch  9 | train loss 0.0256 acc 0.9948 | val loss 0.0025 acc 0.9991 | 110.9s
+epoch 10 | train loss 0.0103 acc 0.9977 | val loss 0.0015 acc 0.9996 | 113.7s
+Training wall time: 1120.4s for 10 epochs (3130 optimizer steps)
+Greedy exact-match, held-out lengths 4-10: 495/500 = 0.9900
+Greedy exact-match, lengths 11-14 (never trained on): 0/500 = 0.0000
+Greedy exact-match, lengths 15-18 (never trained on): 0/500 = 0.0000
+Saved model weights to weights_alibi.npz
+Wrote results_alibi.json

@@ -1,0 +1,23 @@
+========================================================================
+Layer-math experiment — arm: qknorm
+Arm definition: V2 QK-norm: scores = tau * cos(Q,K), tau learnable per attention module (init sqrt(dk)).
+Config: {'seed': 20261028, 'd_model': 128, 'num_heads': 4, 'num_layers': 2, 'd_ff': 512, 'batch_size': 64, 'epochs': 10, 'train_size': 20000, 'val_size': 2000, 'test_size': 2000, 'eval_decode_n': 500, 'min_len': 4, 'max_len': 10} | arm spec: {'attention_mode': 'qknorm', 'optimizer': 'adam', 'warmup': 200, 'weight_decay': None}
+NumPy version: 2.5.4
+========================================================================
+Parameter count: 930,963
+epoch  1 | train loss 0.7666 acc 0.7304 | val loss 0.1156 acc 0.9653 | 112.4s
+epoch  2 | train loss 0.1033 acc 0.9681 | val loss 0.0460 acc 0.9861 | 112.9s
+epoch  3 | train loss 0.0408 acc 0.9879 | val loss 0.0377 acc 0.9892 | 112.3s
+epoch  4 | train loss 0.0251 acc 0.9928 | val loss 0.0085 acc 0.9970 | 126.4s
+epoch  5 | train loss 0.0166 acc 0.9953 | val loss 0.0086 acc 0.9979 | 131.5s
+epoch  6 | train loss 0.0128 acc 0.9965 | val loss 0.0046 acc 0.9988 | 132.6s
+epoch  7 | train loss 0.0101 acc 0.9976 | val loss 0.0032 acc 0.9991 | 133.8s
+epoch  8 | train loss 0.0083 acc 0.9980 | val loss 0.0032 acc 0.9990 | 136.9s
+epoch  9 | train loss 0.0069 acc 0.9983 | val loss 0.0008 acc 0.9999 | 135.6s
+epoch 10 | train loss 0.0002 acc 1.0000 | val loss 0.0000 acc 1.0000 | 140.9s
+Training wall time: 1275.5s for 10 epochs (3130 optimizer steps)
+Greedy exact-match, held-out lengths 4-10: 500/500 = 1.0000
+Greedy exact-match, lengths 11-14 (never trained on): 0/500 = 0.0000
+Greedy exact-match, lengths 15-18 (never trained on): 0/500 = 0.0000
+Saved model weights to weights_qknorm.npz
+Wrote results_qknorm.json

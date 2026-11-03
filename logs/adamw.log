@@ -1,0 +1,23 @@
+========================================================================
+Layer-math experiment — arm: adamw
+Arm definition: V3 AdamW: decoupled weight decay 0.1 (uniform), Noam warmup 200 -> 400.
+Config: {'seed': 20261028, 'd_model': 128, 'num_heads': 4, 'num_layers': 2, 'd_ff': 512, 'batch_size': 64, 'epochs': 10, 'train_size': 20000, 'val_size': 2000, 'test_size': 2000, 'eval_decode_n': 500, 'min_len': 4, 'max_len': 10} | arm spec: {'attention_mode': 'base', 'optimizer': 'adamw', 'warmup': 400, 'weight_decay': 0.1}
+NumPy version: 2.5.4
+========================================================================
+Parameter count: 930,957
+epoch  1 | train loss 0.7198 acc 0.7474 | val loss 0.1876 acc 0.9429 | 132.7s
+epoch  2 | train loss 0.1450 acc 0.9602 | val loss 0.0659 acc 0.9844 | 150.7s
+epoch  3 | train loss 0.0550 acc 0.9864 | val loss 0.0498 acc 0.9893 | 118.8s
+epoch  4 | train loss 0.0327 acc 0.9923 | val loss 0.0119 acc 0.9982 | 105.2s
+epoch  5 | train loss 0.0187 acc 0.9961 | val loss 0.0080 acc 0.9982 | 106.1s
+epoch  6 | train loss 0.0138 acc 0.9971 | val loss 0.0127 acc 0.9975 | 105.4s
+epoch  7 | train loss 0.0094 acc 0.9979 | val loss 0.0048 acc 0.9989 | 105.4s
+epoch  8 | train loss 0.0093 acc 0.9980 | val loss 0.0021 acc 0.9995 | 107.3s
+epoch  9 | train loss 0.0068 acc 0.9985 | val loss 0.0014 acc 0.9995 | 104.9s
+epoch 10 | train loss 0.0043 acc 0.9990 | val loss 0.0001 acc 1.0000 | 106.5s
+Training wall time: 1143.2s for 10 epochs (3130 optimizer steps)
+Greedy exact-match, held-out lengths 4-10: 500/500 = 1.0000
+Greedy exact-match, lengths 11-14 (never trained on): 0/500 = 0.0000
+Greedy exact-match, lengths 15-18 (never trained on): 0/500 = 0.0000
+Saved model weights to weights_adamw.npz
+Wrote results_adamw.json
